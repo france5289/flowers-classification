@@ -12,7 +12,7 @@ import load_data
 import random
 
 ''' define parameters '''
-BATCH_SIZE = 50
+BATCH_SIZE = 70
 LEARNING_RATE = 0.02
 STEPS = 200
 SEED = 66478

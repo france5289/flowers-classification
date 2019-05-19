@@ -33,7 +33,7 @@ def load_flowers_dataset(shuffle_img):
 
   for i in root_lsdir:
     fullpath = join('./', i)
-    if isdir(fullpath) and i != '__pycache__' and i != 'model' and i != 'Tensorboard':
+    if isdir(fullpath) and i != '__pycache__' and i != 'model' and i != 'Tensorboard' and i != '.git':
       data_dir.append( i )
       temp = { 'id': len(label),'name': i }
       label_file.write(str(len(label)) + ' ' + i + '\n')

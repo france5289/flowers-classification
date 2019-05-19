@@ -9,13 +9,14 @@ import gc
 import tensorflow as tf
 import time
 import sys
-
+import os
 from skimage import io
-from matplotlib import pyplot as plt
+import matplotlib
+matplotlib.use("agg")
+import matplotlib.pyplot as plt
 from skimage.transform import resize
 from os.path import join
-
-root_dir=sys.argv[1]
+root_dir = os.getcwd()
 CLASSES=[]
 
 def load_data(num, test_size):
