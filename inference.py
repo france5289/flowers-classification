@@ -24,7 +24,7 @@ with tf.Session() as sess:
   images = graph.get_tensor_by_name("x:0")
   labels = graph.get_tensor_by_name("y:0")
   pred = graph.get_tensor_by_name("pred:0")
-
+  keep_prob = graph.get_tensor_by_name("keep_prob:0")
 
   train_image, train_label, test_image, test_label = load_data.load_data(num=100, test_size=1)
   num_test = len(test_label)
@@ -33,7 +33,7 @@ with tf.Session() as sess:
   number = random.randint(0, 100)
   images_batch = test_image[int(number):int(number)+1]
   labels_batch = test_label[int(number):int(number)+1]
-  inference = sess.run(pred, feed_dict={ images: images_batch })
+  inference = sess.run(pred, feed_dict={ images: images_batch, keep_prob: 1.0 })
   load_data.showCategory(inference.flatten()[0])
   print('True category: {}.' . format(load_data.CLASSES[labels_batch[0]]))
   load_data.showImage(images_batch[0])
